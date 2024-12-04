@@ -1,1 +1,720 @@
 
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: Ewert;
+    line-height: 1.6;
+
+}
+
+
+
+/*-----------------------------------HEADER   HERE---------------------------------*/
+header {
+    display: flex;
+    justify-content: space-between; /* Space out the header items */
+    align-items: center;
+    background-color: #333;
+    color: #E6CCB2;
+    font-family: Ewert;
+    color: E6CCB2;
+    padding: 20px;
+}
+
+header h1 {
+    margin: 0;
+    font-family: Ewert;
+}
+
+
+nav {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav li {
+    display: flex; 
+    align-items: center; 
+    font-family: Mouse Memoirs;
+}
+
+nav a {
+    color:  #E6CCB2;
+
+    text-decoration: none;
+    font-weight: bold;
+    margin-right: 10px; 
+}
+
+nav img {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+}
+
+
+
+/* Hover */
+nav li:hover {
+  transform: scale(1.3); 
+  
+
+}
+
+
+nav img:hover {
+  transform: scale(1.3);
+  cursor: pointer;
+}
+
+
+@media (max-width: 768px) {
+  /* Grid layout for smaller screens */
+  header {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      align-items: center;
+      padding: 20px;
+      padding-left: 40px;
+  }
+
+
+  header h1 {
+      grid-column: 1;
+      justify-self: start;
+      font-size: 1.5rem; /* Smaller font size for smaller screens */
+  }
+
+  /* Smaller logo */
+  .logo img {
+      max-width: 120px; /* Adjust the max-width to make logo smaller */
+      height: auto; /* Maintain aspect ratio */
+  }
+
+  /* Position nav (including Sign Up) closer to the right */
+  nav ul {
+      grid-column: 3;
+      justify-self: end;
+      display: flex;
+      align-items: center;
+      gap: 10px;  /* Reduce the gap between nav items */
+  }
+
+  /* Hide the 'Contact' link and 'About Us' link */
+  nav a[href="contact"], 
+  nav a[href="aboutus"] {
+      display: none;
+  }
+
+  nav img[src*="contact"] {
+      display: none;  /* Hide the contact image */
+  }
+
+  /* Ensure 'Sign Up' is pushed to the right using flex-grow */
+  nav a[href*="sign-up"] {
+      display: flex;
+      align-items: center;
+      /*flex-grow: 1;*/
+      justify-content: flex-end; /* Aligns the content to the far right */
+      margin-left: auto;
+  }
+
+ 
+  nav a[href*="sign-up"] img {
+      width: 20px;  
+      height: auto;
+      margin-left: 20px; 
+  }
+}
+
+
+
+/*-------------------------------------------INDEX  HERE-----------------------------------------------*/
+/*------------- Hero / Carousel---------------------------*/
+/*--- Overall size of hero class --*/
+
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 80vh; /* 80% of viewport height */
+  margin: 2rem 0;
+  overflow: hidden;
+}
+
+/* Hero image container (full width and height) */
+.hero-slide {
+  position: relative;
+  width: 100%;     
+  height: 100%;    
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background-color: #333;
+}
+
+/* Hero images settings and transition between images */
+.hero-slide img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;     
+  height: 100%;  
+  object-fit: cover; 
+  opacity: 0;     
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Show current hero image over hidden ones */
+.hero-slide img.active {
+  opacity: 1; 
+}
+
+/* Arrow indicating click */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+  padding: 0.6rem;
+  cursor: pointer;
+  user-select: none;
+  z-index: 10;
+}
+
+/* Arrows close to sides */
+.arrow.left {
+  left: 0.1rem;
+}
+
+.arrow.right {
+  right: 0.1rem;
+}
+
+/* Indication circles placement */
+.indicators {
+  position: absolute;
+  bottom: 0.6rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.6rem;
+  z-index: 10;
+}
+
+/* Indication circle clickable and low opacity while image is hidden */
+.spanCircle {
+  width: 0.9rem;
+  height: 0.9rem;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* Indication circle white while image showing */
+.spanCircle.active {
+  background-color: white;
+}
+
+/* Media queries for hero */
+@media (min-width: 700px) {
+  .hero-slide {
+      width: 400%; 
+      .hero-slide {
+        width: 90%; 
+        height: 50vh;
+    }
+    .hero-slide img {
+        object-fit: contain; 
+    }
+}
+  }
+
+@media (min-width: 950px) {
+  .hero-slide {
+      width: 400%; /* Adjust width on large screens */
+  }
+}
+
+
+
+/* ------------------Grid container Aktuellt/  Movies Now--------------- */
+.grid-container-aktuellt {
+    display: grid;  
+    grid-template-rows: 1fr 1fr; /* Two rows, each taking equal available space */
+    grid-template-columns: 1fr 1fr 1fr; /* Three columns, each taking equal available space */
+    gap: 10px; 
+    background-color: #333;
+}
+
+
+.grid-item {
+    width: 100%; 
+    height: 100%;
+}
+
+.grid-item img {
+    width: 80%; 
+    height: 90%; 
+    object-fit: cover; /* Maintain aspect ratio without distortion */
+    padding-left: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+
+/* --------- h2/Aktuelllt/Movies Now--------- */
+ h2 {
+    display: flex; /* Use Flexbox for layout */
+    justify-content: center;
+    align-items: center; 
+    background-color: rgb(206, 178, 155);
+    font-family: peralta;
+    padding: 20px;
+ }
+
+
+ .grid-item img:hover {
+  transform: scale(1.2); /* Slight zoom effect on hover */
+  cursor: pointer; 
+}
+
+
+ @media (max-width: 768px) {
+
+  .grid-container-aktuellt {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); /* Create 2 equal columns */
+      gap: 16px;
+      padding: 16px; 
+  }
+
+  .grid-item {
+      width: 100%; /* Ensure grid items take full width of the column */
+  }
+
+  .grid-item img {
+      width: 100%;
+      height: 100%; 
+      object-fit: cover; 
+      border-radius: 8px; /* Optional: rounded corners for images */
+  }
+}
+
+/*--------------h3 /Coming soon-------------*/
+
+h3 {
+  text-align: center; 
+  font-family: peralta;
+  color: black; 
+  background-color: #D25802;
+  padding: 10px; 
+  font-size: 1.8rem; 
+  margin: 0; 
+  display:inline-block;
+  animation: moveRightToLeft 10s linear infinite;
+}
+.aktuellt {
+  overflow: hidden;
+  background-color: #D25802;
+  width: 100%;
+
+}
+
+@keyframes moveRightToLeft {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@media (max-width: 768px) {
+  h3 {
+    white-space: nowrap;
+    overflow: hidden;
+    width: 100%;
+  }
+}
+
+
+.grid-container-comingsoon {
+  display: grid;
+  grid-template-columns: 1fr 1fr; 
+  gap: 20px;
+  padding: 20px;
+  align-items: center; 
+  background-color:  rgb(206, 178, 155);
+}
+
+.grid-item {
+  display: flex;
+  flex-direction: row; 
+  align-items: center;
+  gap: 20px; 
+  max-width: 100%; 
+}
+
+/* Ensure images fill their container proportionally */
+.grid-item img {
+  width: 300px;
+  border-radius: 8px;
+  object-fit: cover; 
+ height: 400px; 
+}
+
+
+
+/* Style for the text */
+.text-right, .text-left {
+  font-family: peralta;
+  font-size: 1.1rem;
+  color:black;
+  line-height: 1.6; 
+  text-align: justify;
+  padding: 0 15px; 
+  flex-grow: 1; 
+  max-width: 100%;
+}
+
+/* Position text on the right side for first grid item */
+.text-right {
+  text-align: left;
+  font-weight: bold;
+}
+
+/* Position text on the left side for second grid item */
+.text-left {
+  text-align: right;
+  font-style: italic;
+}
+
+/* Make it responsive for smaller screens */
+@media (max-width: 768px) {
+  .grid-container-comingsoon {
+      grid-template-columns: 1fr; 
+      gap: 15px;
+  }
+
+  .grid-item img {
+      max-width: 100%; /* Ensure images fill the available width */
+      height: auto;
+  }
+
+  .text-right, .text-left {
+      font-size: 1rem; /* Adjust text size */
+      text-align: center; /* Center the text for smaller screens */
+      padding: 0 10px;
+  }
+
+}
+
+
+ /*-------------pop up / Discount-----------*/
+ .popup-container {
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: visibility 0s, opacity 0.5s ease-in-out;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+  }
+  
+  .popup-container.show {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  .popup-container.hide {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease-in-out, visibility 0.5s linear 0.5s;
+  }
+  
+  .popup {
+    background-color: #fff;
+  
+    overflow: hidden;
+    width: 90%;
+    max-width: 780px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transform: translateY(50px);
+    animation: slideIn 0.5s ease-out forwards;
+    /* min-width: 780px; */
+  
+  
+  }
+  
+  .popup.hide {
+    animation: slideOut 0.5s ease-in-out forwards;
+  }
+  
+  .popup.desktop {
+    flex-direction: row;
+  }
+  
+  .popup .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 40px;
+    cursor: pointer;
+    color: #000;
+  }
+  
+  .popup .gray-box-popup {
+  
+    flex: 1.4;
+  }
+  
+  .popup .content-popup {
+    padding: 20px;
+    flex: 1.3;
+    text-align: center;
+    background-color: #F5F1E7;
+
+  }
+  
+  .popup h2 {
+  
+    margin-bottom: 10px;
+    font-family: Montserrat;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px;
+  }
+  
+  .popup p {
+  
+    margin-bottom: 20px;
+    font-family: Montserrat;
+  
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+  }
+  
+  .popup input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
+  
+  .popup button {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    width: 100%;
+    font-family: Montserrat;
+    transition: 0.2s ease-in-out;
+  
+  }
+  
+  .popup button:hover {
+  
+    background-color: #FFF;
+    color: black;
+    border: 1px solid #000;
+  }
+  
+  .popup .terms {
+    margin-top: 10px;
+  
+    color: #666;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+  }
+  
+  .popup .terms a {
+    color: #000;
+    text-decoration: underline;
+  }
+  
+  .popup img.logo {
+    max-height: 200px;
+    object-fit: contain;
+    margin: 20px auto;
+  }
+  
+  .nej-tack {
+    font-size: 0.9rem;
+    text-decoration: underline;
+    color: #000;
+    margin-top: 10px;
+    cursor: pointer;
+    font-family: Montserrat;
+  }
+  
+  @media screen and (min-width: 768px) {
+    .popup.desktop {
+      flex-direction: row;
+    }
+  
+    .gray-box-popup {
+      width: 50%;
+      display: block;
+    }
+  
+    .content-popup {
+      width: 50%;
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .popup {
+      flex-direction: column;
+      width: calc(100% - 80px);
+      /* Adds 20px margin on each side */
+      max-width: none;
+      /* Removes max-width constraint */
+      margin: 0 auto;
+      /* Centers the popup horizontally */
+    }
+  
+    .popup .gray-box-popup {
+      display: none;
+      /* Adjust visibility as needed */
+    }
+  
+    .popup .content-popup {
+      width: 100%;
+      /* Use the entire width */
+    }
+}
+/*----------------------------------------FOOTER HERE-------------------------------------------*/
+
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #333;
+    padding: 20px;
+    gap: 30px; /* Increased space between sections */
+    font-family: mouse-memoirs;
+}
+
+footer nav ul {
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    gap: 500px; /* Increased space between nav items */
+}
+
+
+footer nav ul li a {
+    text-decoration: none;
+    color: #E6CCB2;
+    padding: 10px;
+    transition: color 0.3s ease;
+}
+
+footer nav ul li a:hover {
+    color: #007bff;
+}
+
+.images-row {
+    display: flex;
+    justify-content: center;
+    gap: 40px; /* Increased space between images */
+}
+
+.images-row img {
+    max-height: 40px;
+    max-width: 60px;
+    object-fit: contain;
+}
+
+.images-row:hover {
+  transform: scale(1.2); /* Slight zoom effect on hover */
+  cursor: pointer; 
+}
+
+.copyright {
+    text-align: center;
+    color: #c5bfbf;
+    font-size: 1.1rem;
+    font-family: Peralta;
+    color: E6CCB2;
+}
+
+@media (max-width: 768px) {
+  footer {
+      padding: 15px; /* Reduced padding for better fit */
+      gap: 20px; /* Reduced space between sections */
+  }
+
+  /* Reduce gap between navigation items */
+  footer nav ul {
+      justify-content: space-between;
+      gap: 50px; /* Decreased gap to avoid stretching */
+  }
+
+  footer nav ul li a {
+      font-size: 0.9rem; /* Slightly smaller font size for better readability */
+  }
+
+  /* Reduce size of images in the images row */
+  .images-row img {
+      max-height: 35px; /* Reduce image height */
+      max-width: 50px; /* Reduce image width */
+  }
+
+  /* Adjust hover effect for images */
+  .images-row:hover {
+      transform: scale(1.1); /* Slight zoom effect */
+  }
+
+  /* Adjust font size of copyright */
+  .copyright {
+      font-size: 0.85rem; /* Smaller font size for copyright */
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+  
+ 
+
+

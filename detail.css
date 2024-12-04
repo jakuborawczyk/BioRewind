@@ -168,3 +168,32 @@ h2 {
     display: none;
 }
 }
+/* SImples hover effect over the book cards */
+.bookCard{
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 8px;
+  overflow: hidden; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.bookCard:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.bookCardText,
+.bookCardInfo,
+.bookCardPrice {
+  transition: color 0.3s ease;
+}
+
+.bookCard:hover .bookCardText {
+  color: #3c3630;
+}
+
+.bookCard:hover .bookCardInfo {
+  color: #514a43;
+}
+
+.bookCard:hover .bookCardPrice {
+  color: #3c3630;
+}
