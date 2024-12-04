@@ -1,1 +1,170 @@
+:root {
+  --titleFont: "Ewert";
+  --navTextFont: "Mouse Memoirs";
+  --descriptionFont: "Podkova";
+  --font-normal-weight: 400;
+  --font-bold-weight: 800;
+}
 
+body {
+  background-color: #3c3630;
+  margin: 0;
+  display: block;
+}
+.bookTitle {
+  color: #e6ccb2;
+  font-family: var(--titleFont);
+  font-size: 60px;
+  font-weight: var(--font-normal-weight);
+  margin: 20px 0 10px 0;
+}
+.videoContainer {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 16/9;
+}
+
+.sevenBannerIMG {
+  width: 100%;
+  height: auto;
+}
+
+.movieImage {
+  max-width: 575px;
+  min-width: 180px;
+  height: auto;
+}
+
+.movieImages {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.movieContainer {
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.articleIMG {
+  min-width: 300px;
+  max-width: 440px;
+  margin-right: 2rem;
+}
+.articleContainer {
+  padding: 3rem 0 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.movieInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  max-width: 1064px;
+  height: auto;
+  padding: 1rem 2rem 2rem 2rem;
+  background-color: #e6ccb2;
+  box-shadow: 0px 0px 9px 0px rgba(230, 204, 178, 1);
+}
+.movieTitle,
+.movieDescription {
+  text-align: center;
+}
+.bookNowBTN{
+    background-color: #3c3630;
+    color:#e6ccb2;
+    font-family: var(--navTextFont);
+    letter-spacing: 3px;
+    padding: 7px 20px 7px 20px;
+    font-size: 37px;
+    border-radius: 14px;
+}
+.movieTitle {
+  font-size: 60px;
+  font-family: var(--titleFont);
+  margin: 0;
+  font-weight: var(--font-normal-weight);
+}
+.movieDescription {
+  max-width: 980px;
+  font-size: 32px;
+  font-family: var(--descriptionFont);
+}
+
+.articleInfo {
+  background-color: #e6ccb2;
+  box-shadow: 0px 0px 9px 0px rgba(230, 204, 178, 1);
+  max-width: 500px;
+  height: auto;
+
+  padding: 2rem;
+}
+.mainCast {
+  font-family: var(--descriptionFont);
+  font-weight: var(--font-normal-weight);
+  font-size: 32px;
+  margin: 2px;
+}
+h2 {
+  font-family: var(--descriptionFont);
+  font-weight: var(--font-bold-weight);
+  font-size: 32px;
+  margin: 20px;
+}
+
+.bookTitle {
+  text-align: center;
+}
+.bookContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bookContainers {
+  max-width: 900px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.bookCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  background-color: #e6ccb2;
+  width: 12rem;
+  margin: 17px 10px 17px 10px;
+}
+.bookCardText {
+  font-size: 20px;
+  font-weight: 550;
+  font-family: var(--titleFont);
+  letter-spacing: 6%;
+}
+.bookCardInfo {
+  margin: 0;
+  text-align: center;
+  max-width: 110px;
+  font-weight: bold;
+  font-size: 20px;
+  font-family: var(--descriptionFont);
+}
+.bookCardPrice {
+  font-weight: 400;
+  font-size: 17px;
+  font-family: var(--descriptionFont);
+}
+
+@media (max-width: 1030px) {
+.articleContainer{
+    display: none;
+}
+}
